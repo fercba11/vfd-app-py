@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div>
+  <figure class="text-center">
+    <blockquote class="blockquote">
+      <p style="font-size: 30px;">Reportes</p>
+    </blockquote>
+  </figure>
+</div>
+
+<div id="myChart"></div>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script>
+    var graph1 = {{ graph1JSON | safe }};
+    Plotly.plot("myChart", graph1, {});
+    var graph2 = {{ graph2JSON | safe }};
+    Plotly.plot("myChart", graph2, {});
+</script>
+<br>
+<br>
+<div id="myChart2"></div>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script>
+    var graph3 = {{ graph3JSON | safe }};
+    Plotly.plot("myChart2", graph3, {});
+</script>
+
+<h6> FIN DE LOS GRAFICOS</h6>
+
+
+{% endblock %}

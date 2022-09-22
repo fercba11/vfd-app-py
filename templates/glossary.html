@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div>
+  <figure class="text-center">
+    <blockquote class="blockquote">
+      <p style="font-size: 30px;">Glosario</p>
+      <figcaption class="blockquote-footer">
+        Definiciones de Kpi's con sus formulas y queries
+      </figcaption>
+  </figure>
+</div>
+
+<div>
+  <div class="accordion open" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+          aria-expanded="true" aria-controls="collapseOne">
+          BINS_CASHBACK
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+        data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <strong>BINS_CASHBACK</strong><br>
+          Es un descuento aplicado en forma de cashback en la billetera por pagar con una tarjeta de un banco / entidad
+          que tiene una campaña de descuentos activa. El término BIN ( bank identification number , en inglés )
+          refierealos números iniciales de la tarjeta. El usuario paga el precio completoydespués recibe un descuento en
+          labilletera.
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+          aria-expanded="false" aria-controls="collapseTwo">
+          BINS_DISCOUNT
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+        data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <strong>BINS_DISCOUNT</strong><br>
+          Es un descuento aplicado en el checkout por pagar con una tarjeta de un banco/entidad que tiene una campaña de
+          descuentos activa. El término BIN (bank identification number, en inglés) refierealos números iniciales de la
+          tarjeta.
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          BINS_REIMBURSEMENT
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+        data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <strong>BINS_REIMBURSEMENT</strong><br>
+          Es un descuento aplicado en forma de reembolso bancario por pagar con una tarjeta de un banco/entidad que tiene una campaña de descuentos activa. El término BIN (bank identification number, en inglés) refierealos números iniciales de la tarjeta. El usuario paga el precio completoydespués recibe un descuento en la billetera .
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingFour">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseFour">
+          BINS_REIMBURSEMENT
+        </button>
+      </h2>
+      <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+        data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <strong>BINS_REIMBURSEMENT</strong><br>
+          Es un descuento aplicado en forma de reembolso bancario por pagar con una tarjeta de un banco/entidad que tiene una campaña de descuentos activa. El término BIN (bank identification number, en inglés) refierealos números iniciales de la tarjeta. El usuario paga el precio completoydespués recibe un descuento en la billetera .
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div>
+  <figure class="text-center">
+    <blockquote class="blockquote">
+      <p style="font-size: 30px;">Glosario</p>
+      <figcaption class="blockquote-footer">
+        Definiciones de Kpi's con sus formulas y queries
+      </figcaption>
+  </figure>
+</div>
+
+<div>
+  <div class="accordion open" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+          aria-expanded="true" aria-controls="collapseOne">
+          VFD
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+        data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <strong>Vendor Founded Deals</strong> corresponde a todos los descuentos que son subsidiados por un partner.
+          <br>
+          su calculo se conforma por la sumatoria de todos los descuentos pagados por un partner.<br>
+          <code>
+            SELECT <br>
+            registered_date <br>
+            ,partner_id <br>
+            ,paid_by <br>
+            ,ARRAY_TO_STRING(ARRAY_AGG(DISTINCT discount_type IGNORE NULLS ORDER BY discount_type),"; ") AS discounts_per_order <br>
+            ,COUNT(DISTINCT d.order_id) orders <br>
+            ,round(SUM(discount_amount/ce.rate_eu),2) as discount_amount_eur <br>
+            ,round(SUM(discount_amount),2) as discount_amount_lc <br>
+            <br>
+          FROM `peya-markets.automated_tables_reports.affordable_orders` d <br>
+          <br>
+          INNER JOIN ( <br> 
+              SELECT order_id, restaurant.id partner_id, restaurant.country.currency.id <br>
+              FROM `peya-bi-tools-pro.il_core.fact_orders` <br>
+              WHERE registered_date >= (SELECT start_date from dates)) o <br>
+            ON o.order_id = d.order_id <br>
+          
+          LEFT JOIN `peya-bi-tools-pro.il_core.dim_currency_exchange` ce <br>
+              ON ce.currency_id = d.country_id <br>
+              AND ce.currency_exchange_date = DATE_TRUNC(DATE(d.registered_date),MONTH)<br>
+              <br>
+          WHERE TRUE <br>
+            AND discount_type NOT LIKE "%proxy%" <br>
+            AND discount_amount > 0 <br>
+            AND paid_by = 'RESTAURANT' <br>
+            <br>
+          GROUP BY 1,2,3</code>,
+
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+          aria-expanded="false" aria-controls="collapseTwo">
+          Accordion Item #2
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+        data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin
+          adds the appropriate classes that we use to style each element. These classes control the overall appearance,
+          as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or
+          overriding our default variables. It's also worth noting that just about any HTML can go within the
+          <code>.accordion-body</code>, though the transition does limit overflow.
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Accordion Item #3
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+        data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin
+          adds the appropriate classes that we use to style each element. These classes control the overall appearance,
+          as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or
+          overriding our default variables. It's also worth noting that just about any HTML can go within the
+          <code>.accordion-body</code>, though the transition does limit overflow.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

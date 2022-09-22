@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div>
+  <figure class="text-center">
+    <blockquote class="blockquote">
+      <p style="font-size: 30px;">Links Utiles</p>
+    </blockquote>
+  </figure>
+</div>
+
+<div class="row">
+  <div class="col-sm-4">
+    <div class="card" style="width: 18rem;">
+      <img src="../static/vfd report.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Tableau VFD 2.0</h5>
+        <p class="card-text">Tableau con informacion de VFD, montos de inversion, order penetration, partner penetration
+          y self management</p>
+        <a href="https://tableau.deliveryhero.net/#/site/Pedidosya/views/pruebavfd2_0/OVERVIEW"
+          class="btn btn-primary">Ir al reporte</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card" style="width: 18rem;">
+      <img src="../static/campañas mkt.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Campañas de Marketing</h5>
+        <p class="card-text">Tableau con analisis por campañas de marketing. se puede analisar inversiones de distintas
+          partes en cada campaña.</p>
+        <a href="https://tableau.deliveryhero.net/t/Pedidosya/views/Campaasdemarketing/Resumenpas?:showAppBanner=false&:display_count=n&:showVizHome=n&:origin=viz_share_link"
+          class="btn btn-primary">Ir al reporte</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card" style="width: 18rem;">
+      <img src="../static/precio 0.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Productos Mal Cargados</h5>
+        <p class="card-text">Looker donde se pueden ver los productos de campañas de marketing con error de carga en precio original.</p>
+        <a href="https://pedidosya.sa.looker.com/looks/35714"
+          class="btn btn-primary">Ir al reporte</a>
+      </div>
+    </div>
+  </div>
+  <div class="row"><br><br></div>
+  <div class="col-sm-4">
+    <div class="card" style="width: 18rem;">
+      <img src="../static/KODNO CAPA.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Manual Kondo</h5>
+        <p class="card-text">Guia de uso, consideraciones, buenas practicas y limitaciones de la herramienta de
+          Descuentos para Local Stores: Kondo. Dentro de las slides se puede encontrar el video de la capactiacion
+          realizada</p>
+        <a href="https://docs.google.com/presentation/d/1f4WBBHjdTHtS4u6RzYFntndE26ryk0ApR0NA02fb9Ic/edit#slide=id.g1407759d682_0_0" class="btn btn-primary">Ir al archivo</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card" style="width: 18rem;">
+      <img src="../static/INTRO VFD.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Introduccion a VFD</h5>
+        <p class="card-text">Slides con informacion general sobre Vendor Founded Deals. Porqué consideramos esta metrica, cuales son los aspectos que la incuye y demas.</p>
+        <a href="https://docs.google.com/presentation/d/1O8szCVrbxoLPqM8kxzzh560jQVOr_BX3qrYwiYx_y-k/edit#slide=id.g102d6822bb3_0_404" class="btn btn-primary">Ir al archivo</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card" style="width: 18rem;">
+      <img src="../static/recomendaciones.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Recomendaciones de VFD</h5>
+        <p class="card-text">Tableau con modelo de recomendaciones de accion de VFD.</p>
+        <a href="https://tableau.deliveryhero.net/#/site/Pedidosya/views/Dealrecommendation2/Recomendaciones" class="btn btn-primary">Ir al reporte</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
